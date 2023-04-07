@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:share_plus/share_plus.dart';
 
+
 import 'MYNOTE.dart';
 
 class SUCCESS extends StatefulWidget {
@@ -11,7 +12,7 @@ class SUCCESS extends StatefulWidget {
   State<SUCCESS> createState() => _SUCCESSState();
 }
 bool isWhite=false;
-
+bool isColored=false;
 class _SUCCESSState extends State<SUCCESS> {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class _SUCCESSState extends State<SUCCESS> {
             }, icon: const Icon(Icons.check))
           ],
 
-          backgroundColor:isWhite?Colors.white:Colors.blue[900],
+          backgroundColor:isColored?Colors.blue[900]:Colors.white,
       ),
       body:Column(
         children: [
@@ -67,7 +68,7 @@ class _SUCCESSState extends State<SUCCESS> {
             height: 100,
 
             width: double.infinity,
-            color: isWhite?Colors.white:Colors.blue[900],
+            color:isColored?Colors.blue[900]:Colors.white ,
             child: Container(
               margin: const EdgeInsets.only(left: 50),
               padding: const EdgeInsets.only(top: 20),
@@ -96,7 +97,9 @@ class _SUCCESSState extends State<SUCCESS> {
                   Row(
                     children: [
                       OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          isColored=!isColored;
+                        },
                         style: ButtonStyle(
 
                         shape: MaterialStateProperty.all<OutlinedBorder>(
@@ -111,11 +114,13 @@ class _SUCCESSState extends State<SUCCESS> {
                     ],
                   ),
 
-
                   Row(
                     children: [
                       OutlinedButton(
-                        onPressed: (){},style: ButtonStyle(
+                        onPressed: (){
+
+
+                        },style: ButtonStyle(
 
                         shape: MaterialStateProperty.all<OutlinedBorder>(
                             const CircleBorder()
@@ -137,10 +142,7 @@ class _SUCCESSState extends State<SUCCESS> {
                       const SizedBox(
                         width: 4,
                       ),
-                      const CircleAvatar(
-                        radius: 19,
-                        backgroundColor: Colors.yellow,
-                      ),
+                    const CircleAvatar(),
                       const SizedBox(
                         width: 4,
                       ),
@@ -181,8 +183,9 @@ class _SUCCESSState extends State<SUCCESS> {
                       ),
 
                       ElevatedButton(onPressed: (){
+
                         setState(() {
-                          isWhite=!isWhite;
+                          isColored=!isColored;
                         });
                       },style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(

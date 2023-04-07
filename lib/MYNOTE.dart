@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Edit Note.dart';
+import 'NewNote.dart';
 
 class NOTE extends StatefulWidget {
   const NOTE({Key? key}) : super(key: key);
@@ -20,10 +21,13 @@ class _NOTEState extends State<NOTE> {
             fontSize: 22
         ),),
       ),
-      body:  Container(
-        child: Column(
-          children: [
-            Container(
+      body:  Column(
+        children: [
+          InkWell(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const EDIT()));
+            },
+            child: Container(
               width: 800,
               margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(10),
@@ -32,14 +36,12 @@ class _NOTEState extends State<NOTE> {
                   boxShadow: const [
                   BoxShadow(
                     blurStyle: BlurStyle.outer,
-                    blurRadius: 10,
-                    color: Colors.black12
+                    blurRadius:10,
+                    color:Colors.black12,
                   ),
-
-                ],
+                  ],
                 borderRadius: BorderRadius.circular(19)
               ),
-              
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -53,10 +55,42 @@ class _NOTEState extends State<NOTE> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 8,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Container(
+            width: 800,
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            height: 100,
+            decoration: BoxDecoration(
+                boxShadow: const [
+                  BoxShadow(
+                      blurStyle: BlurStyle.outer,
+                      blurRadius: 10,
+                      color: Colors.black12
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(19)
             ),
-            Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Meeting with Client",style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.blue[700]
+                ),),
+                const Text(" Meeting Meeting Meeting  Meeting Meeting",style: TextStyle(
+                    fontSize: 18
+                ),),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+         Container(
               width: 800,
               margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(10),
@@ -68,9 +102,8 @@ class _NOTEState extends State<NOTE> {
                         blurRadius: 10,
                         color: Colors.black12
                     ),
-
                   ],
-                  borderRadius: BorderRadius.circular(19)
+                  borderRadius: BorderRadius.circular(19),
               ),
 
               child: Column(
@@ -86,45 +119,13 @@ class _NOTEState extends State<NOTE> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 8,
-            ),
-            Container(
-              width: 800,
-              margin: const EdgeInsets.all(10),
-              padding: const EdgeInsets.all(10),
-              height: 100,
-              decoration: BoxDecoration(
-                  boxShadow: const [
-                    BoxShadow(
-                        blurStyle: BlurStyle.outer,
-                        blurRadius: 10,
-                        color: Colors.black12
-                    ),
 
-                  ],
-                  borderRadius: BorderRadius.circular(19)
-              ),
 
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Meeting with Client",style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.blue[700]
-                  ),),
-                  const Text(" Meeting Meeting Meeting  Meeting Meeting",style: TextStyle(
-                      fontSize: 18
-                  ),),
-                ],
-              ),
-            ),
-          ],
-        ),
+        ],
       ),
 
       floatingActionButton: FloatingActionButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>const EDIT()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>const SUCCESS()));
       },
         backgroundColor: Colors.blue[500],
       child: const Icon(Icons.add,size: 30,),
