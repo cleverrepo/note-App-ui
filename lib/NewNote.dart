@@ -1,8 +1,7 @@
 import 'package:calculator_app/Sql.dart';
-import 'package:calculator_app/note.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:share_plus/share_plus.dart';
+
 
 import 'MYNOTE.dart';
 
@@ -15,13 +14,12 @@ class SUCCESS extends StatefulWidget {
   State<SUCCESS> createState() => _SUCCESSState();
 }
 
-bool isWhite = false;
-bool isColored = false;
+
+bool isColored = true;
 TextEditingController _title = TextEditingController();
 TextEditingController _description = TextEditingController();
 
 class _SUCCESSState extends State<SUCCESS> {
-  late final Note? note;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,10 +38,16 @@ class _SUCCESSState extends State<SUCCESS> {
                       builder: (contect) {
                         return Expanded(
                             child: Container(
+                              decoration: BoxDecoration(
+                                color:    Colors.blue[900],
+                              ),
+
                           height: 300,
                           width: double.infinity,
-                          color: isColored ? Colors.blue[900] : Colors.white,
+
                           child: Container(
+                            //color:    Colors.blue[900],
+
                             margin: const EdgeInsets.only(left: 50),
                             padding: const EdgeInsets.only(top: 20),
                             child: Column(
@@ -53,7 +57,7 @@ class _SUCCESSState extends State<SUCCESS> {
                                   children: [
                                     OutlinedButton(
                                       onPressed: () {
-                                        Share.share("hello world");
+
                                       },
                                       style: ButtonStyle(
                                         shape: MaterialStateProperty.all<
@@ -166,7 +170,9 @@ class _SUCCESSState extends State<SUCCESS> {
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(35))),
-                                      child: const Icon(Icons.check),
+                                      child:const  Icon(Icons.check,
+
+                                      ),
                                     ),
                                   ],
                                 )
@@ -176,13 +182,16 @@ class _SUCCESSState extends State<SUCCESS> {
                         ));
                       });
                 },
-                icon: const Icon(Icons.more_vert)),
+                icon:  Icon(Icons.more_vert,
+                  color: isColored?Colors.white:Colors.black)),
             IconButton(
                 onPressed: () async {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => NOTE()));
+                      context, MaterialPageRoute(builder: (context) => const NOTE()));
                 },
-                icon: const Icon(Icons.check))
+                icon:  Icon(Icons.check,
+                    color: isColored?Colors.white:Colors.black
+                ))
           ],
           backgroundColor: isColored ? Colors.blue[900] : Colors.white,
         ),

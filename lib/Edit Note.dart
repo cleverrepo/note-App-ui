@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:share_plus/share_plus.dart';
-
-import 'NewNote.dart';
 import 'homepage.dart';
 
 class EDIT extends StatefulWidget {
@@ -18,7 +15,7 @@ class _EDITState extends State<EDIT> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.cyanAccent,
+        backgroundColor:isWhite? Colors.cyanAccent:Colors.white,
         title: const Text(
           "Edit Note",
           style: TextStyle(
@@ -48,7 +45,7 @@ class _EDITState extends State<EDIT> {
                                 children: [
                                   OutlinedButton(
                                     onPressed: () {
-                                      Share.share("hello world");
+
                                     },
                                     style: ButtonStyle(
                                       shape: MaterialStateProperty.all<
@@ -129,13 +126,7 @@ class _EDITState extends State<EDIT> {
                                     radius: 19,
                                     backgroundColor: Colors.pink,
                                   ),
-                                  const SizedBox(
-                                    width: 4,
-                                  ),
-                                  const CircleAvatar(
-                                    radius: 19,
-                                    backgroundColor: Colors.limeAccent,
-                                  ),
+
                                   const SizedBox(
                                     width: 4,
                                   ),
@@ -143,13 +134,7 @@ class _EDITState extends State<EDIT> {
                                     radius: 19,
                                     backgroundColor: Colors.cyan[200],
                                   ),
-                                  const SizedBox(
-                                    width: 4,
-                                  ),
-                                  const CircleAvatar(
-                                    radius: 19,
-                                    backgroundColor: Colors.grey,
-                                  ),
+
                                   const SizedBox(
                                     width: 4,
                                   ),
@@ -177,15 +162,20 @@ class _EDITState extends State<EDIT> {
                       ));
                     });
               },
-              icon: const Icon(Icons.more_vert)),
+              icon:  Icon(Icons.more_vert,
+              color: isWhite?Colors.white:Colors.black,)),
           IconButton(
               onPressed: () {
 
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HOMEPAGE()));
+                    MaterialPageRoute(builder: (context) =>const HOMEPAGE()));
               },
-              icon: const Icon(Icons.check)),
+              icon:  Icon(Icons.check,
+                  color: isWhite?Colors.white:Colors.black
+              )),
+
         ],
+
       ),
       body: Container(
         margin: const EdgeInsets.all(20),

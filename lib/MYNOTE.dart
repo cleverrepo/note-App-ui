@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'Edit Note.dart';
 import 'NewNote.dart';
-import 'note.dart';
 
 class NOTE extends StatefulWidget {
   const NOTE({
@@ -45,7 +44,7 @@ class _NOTEState extends State<NOTE> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (BuildContext) => SUCCESS()));
+                                        builder: (BuildContext) => const SUCCESS()));
                               },
                               child: const Text("Edit note ")),
                           ElevatedButton(
@@ -96,7 +95,7 @@ class _NOTEState extends State<NOTE> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SUCCESS()));
+                context, MaterialPageRoute(builder: (context) => const SUCCESS()));
           },
           backgroundColor: Colors.blue[500],
           child: const Icon(
